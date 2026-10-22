@@ -1,0 +1,3 @@
+# Optional: Search Console + GA4 collector (python3 -m venv ~/.config/infra-dashboard/google-venv)
+google-auth>=2.30
+requests>=2.32

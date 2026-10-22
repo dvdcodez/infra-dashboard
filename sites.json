@@ -1,0 +1,17 @@
+{
+  "_help": "One entry per domain. check = URLs fetched from this machine on every sync (plain GET with a browser user agent; avoid API URLs on apps with aggressive bot protection). gsc = Search Console property (sc-domain:… or https://…/). ga4 = 'properties/<id>' or a key from ga4-properties.json. cf_zone = Cloudflare zone name (needs CLOUDFLARE_API_TOKEN). server = free text: what serves it. dns_external_ok = A-record targets outside your servers that are expected. apps = App Store apps (Apple id).",
+  "sites": [
+    {
+      "domain": "example.com",
+      "product": "Example app",
+      "server": "web-1",
+      "gsc": "sc-domain:example.com",
+      "ga4": "properties/123456789",
+      "cf_zone": "example.com",
+      "check": ["https://example.com/", "https://www.example.com/"]
+    }
+  ],
+  "apps": [
+    {"id": "1234567890", "name": "Example App", "product": "Example app"}
+  ]
+}

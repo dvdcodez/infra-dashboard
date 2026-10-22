@@ -1,0 +1,7 @@
+.env
+data/
+ga4-properties.json
+__pycache__/
+*.pyc
+.DS_Store
+.gstack/

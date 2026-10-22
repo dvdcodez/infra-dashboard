@@ -1,0 +1,33 @@
+{
+  "_help": "Key = server name (with the Hetzner API: the name in the Hetzner console). ssh = an alias from ~/.ssh/config. Without the Hetzner API, add ipv4 / city / lat / lon / type / price_eur yourself. Optional: jump = ssh alias of the jump host this server is reached through (all hops then share one connection); via_host + via_key = reach a private-only box through this one (ssh <ssh> 'ssh -i <via_key> <via_host>'); runs = hand-written list of what runs on the box; no_backups_ok = true silences the backups finding. links = arrows for the connection diagram; 'you' = the machine running the dashboard.",
+  "servers": {
+    "web-1": {
+      "ssh": "web-1",
+      "role": "Public website + API",
+      "product": "Example app",
+      "order": 1,
+      "ipv4": "203.0.113.10",
+      "city": "Frankfurt", "country": "DE", "lat": 50.11, "lon": 8.68,
+      "type": "4 vCPU / 8 GB", "price_eur": 9.0,
+      "runs": [
+        {"name": "nginx", "kind": "system", "what": "TLS + reverse proxy", "domains": "example.com", "port": "80, 443"},
+        {"name": "api", "kind": "pm2", "what": "Node.js API", "port": "3000"}
+      ]
+    },
+    "db-1": {
+      "ssh": "web-1",
+      "via_host": "10.0.0.3",
+      "via_key": "/root/.ssh/id_ed25519",
+      "role": "Database (private network only)",
+      "product": "Example app",
+      "order": 2,
+      "private_ips": ["10.0.0.3"],
+      "city": "Frankfurt", "country": "DE", "lat": 50.11, "lon": 8.68,
+      "runs": [{"name": "PostgreSQL", "kind": "service", "what": "main database", "port": "5432"}]
+    }
+  },
+  "links": [
+    ["you", "web-1", "SSH"],
+    ["web-1", "db-1", "private 10.0.0.0/16"]
+  ]
+}

@@ -1,0 +1,4 @@
+# Optional: App Store Connect collector (python3 -m venv ~/.config/infra-dashboard/asc-venv)
+PyJWT>=2.8
+cryptography>=42
+requests>=2.32

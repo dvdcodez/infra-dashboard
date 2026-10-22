@@ -1,0 +1,18 @@
+{
+  "_help": "Dashboard settings. Every key is optional; see README → Configuration.",
+  "title": "Infra Dashboard",
+  "subtitle": "servers · sites · apps",
+  "port": 8796,
+  "jump_host": null,
+  "ssh_world_ok": [],
+  "expected_public_ports": [80, 443],
+  "google": {
+    "python": "~/.config/infra-dashboard/google-venv/bin/python",
+    "service_account_json": "~/.config/infra-dashboard/google-service-account.json",
+    "ga4_properties": "ga4-properties.json"
+  },
+  "appstore": {
+    "python": "~/.config/infra-dashboard/asc-venv/bin/python",
+    "config": "~/.config/infra-dashboard/appstore.json"
+  }
+}
